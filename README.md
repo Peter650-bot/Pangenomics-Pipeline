@@ -54,3 +54,8 @@ source ~/.bashrc
 
 export PATH=$PATH:/path/to/cd-hit
 source ~/.bashrc
+
+# Activate and run workflow1.sh
+chmod +x workflow1.sh
+./workflow1.sh
+
