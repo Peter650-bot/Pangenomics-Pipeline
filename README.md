@@ -34,14 +34,23 @@ pip install pandas numpy scipy matplotlib biopython
 sudo apt-get install cd-hit
 sudo apt-get install eggnog-mapper
 
-# Configure tools
+# Allow the external tools to be accessed by the code
 export PATH=$PATH:/path/to/eggnog-mapper
 source ~/.bashrc
 
 export PATH=$PATH:/path/to/cd-hit
 source ~/.bashrc
+````
+
+## Steps
+
+###Your input
+In the codes folder exisits all the scripts necessary to run the workflow. The main script to be executed is workflow1.sh. There is also a folder named AcintoAcinetobacter_baumannii_test. Replace the name of this folder with the name of the species you are working on, for example: Citrobacter_freundii. Inside the folder there is an example DNA coding sequence. Replace the file with you CDS fasta file and name it in this format: Citrobacter_feundii_CDS.fasta
+Make sure the CDS.fasta file is a concatenated file of all the strains of the species. If you want to run the pipeline for several species, do the same process. 
+
+###CSV files
+In the genomes_ids_fasta folder you will find 3 dummy files each for every species being studied. Replace the name of the files with the name of your species in this format Citrobacter_freundii_genome_ids.csv
 
 # Activate and run workflow1.sh
 chmod +x workflow1.sh
 ./workflow1.sh
-
