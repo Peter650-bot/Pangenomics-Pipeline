@@ -92,6 +92,16 @@ for file in "$directory"/*.csv; do
 
 	python3 pangenome_construction.py $species_name
 
+        
+	# Translate CDS (DNA) into protein FASTA				# 
+	cds_input="$species_name/$cds_fname.fasta"				#
+	protein_output="$species_name/${species_name}_proteins.faa"		#
+										#
+	echo "Translating CDS file into protein sequences..."			#
+	python3 translate_cds_to_proteins.py "$cds_input" "$protein_output"	#
+
+
+
 	# ---------------------Functional Annotation eggNOG-mapper ---------------------
 
 	# Keeps track of eggNOG-mapper run-time 
@@ -103,7 +113,7 @@ for file in "$directory"/*.csv; do
 	echo "______________________________________________________"
 	echo
 
-	emapper.py -i $species_name/$species_name.fasta -o $species_name/$species_name --usemem --cpu 8 --outfmt_short --translate
+	emapper.py -i "$protein_output" -o $species_name/$species_name --usemem --cpu 8 --outfmt_short     # $species_name/$species_name.fasta --> $protein_output
 
 	run_time=$(($(date +%s) - eggNOG_time)) 
 	echo
