@@ -18,11 +18,15 @@ Make sure to install these dependencies before proceeding.
 ```bash
 # Python libraries
 pip install pandas numpy scipy matplotlib biopython 
+````
+### External tools
+cd-hit: gene clustering tool
 
-# External tools
-sudo apt-get install cd-hit
-sudo apt-get install eggnog-mapper
+eggnog_mapper: gene annotation tool
 
+The download process for both of these tools can be found on https://github.com/weizhongli/cdhit/releases and https://github.com/eggnogdb/eggnog-mapper respectively.
+
+```bash
 # Allow the external tools to be accessed by the code
 export PATH=$PATH:/path/to/eggnog-mapper
 source ~/.bashrc
